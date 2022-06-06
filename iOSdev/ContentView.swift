@@ -19,12 +19,15 @@ struct ContentView: View {
                 Image("logo")
                 Spacer()
                 HStack(spacing: 80.0){
+                    Image("card2")
                     Image("card3")
-                    Image("card4")
                 }
                 Spacer()
-                Image("dealbutton")
-                
+                Button(action: {
+                    print("ssuppp")
+                }, label: {
+                    Image("dealbutton")
+                })
                 Spacer()
                 VStack(spacing: 20.0){
                 HStack(spacing: 100.0){
