@@ -40,9 +40,12 @@ struct ContentView: View {
                     comCard = "card" + String(randomCom)
                     // updating score
                     
-                    playerScore += 1
-                    comScore += 1
-                    
+                    if (randomPlayer > randomCom) {
+                        playerScore += 1
+                    } else if (randomPlayer < randomCom){
+                        comScore += 1
+                    } 
+                                        
                 }, label: {
                     Image("dealbutton")
                 })
