@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+  @State var playerCard = "card5"
+  @State var comCard = "card9"
+  @State var playerScore = 0
+  @State var comScore = 0
     var body: some View {
         
         ZStack(){
@@ -19,12 +24,25 @@ struct ContentView: View {
                 Image("logo")
                 Spacer()
                 HStack(spacing: 80.0){
-                    Image("card2")
-                    Image("card3")
+                    Image(playerCard)
+                    Image(comCard)
                 }
                 Spacer()
                 Button(action: {
-                    print("ssuppp")
+                    
+                    // For generating random number
+                    
+                    let randomPlayer = Int.random(in: 2...14)
+                    let randomCom = Int.random(in: 2...14)
+                    
+                    // updating cards
+                    playerCard = "card" + String(randomPlayer)
+                    comCard = "card" + String(randomCom)
+                    // updating score
+                    
+                    playerScore += 1
+                    comScore += 1
+                    
                 }, label: {
                     Image("dealbutton")
                 })
@@ -35,14 +53,14 @@ struct ContentView: View {
                     VStack(spacing: 20.0){
                     Text("Player")
                         .foregroundColor(.white)
-                    Text("0")
+                    Text(String(playerScore))
                             .foregroundColor(.white)
                     }
                 
                     VStack(spacing: 20.0) {
                     Text("CPU")
                         .foregroundColor(.white)
-                    Text("0")
+                        Text(String(comScore))
                         .foregroundColor(.white)
                    
                         }
